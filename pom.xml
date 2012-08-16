@@ -13,11 +13,11 @@
 
 	<ciManagement>
 	</ciManagement>
-	<scm>
-		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/inventory/</connection>
-		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-modules/inventory/</developerConnection>
-		<url>http://svn.openmrs.org/openmrs-modules/inventory//</url>
-	</scm>
+    <scm>
+        <connection>scm:git:https://github.com/AMPATH/openmrs-module-inventory.git</connection>
+        <developerConnection>scm:git:https://github.com/AMPATH/openmrs-module-inventory.git</developerConnection>
+        <url>https://github.com/AMPATH/openmrs-module-inventory</url>
+    </scm>
 
 	<modules>
 		<module>api</module>
