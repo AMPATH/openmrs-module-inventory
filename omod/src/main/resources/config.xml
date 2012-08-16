@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//OpenMRS//DTD OpenMRS Config 1.0//EN" "http://resources.openmrs.org/doctype/config-1.3.dtd">
+<module configVersion="1.3">
+	
+	<!-- logic Module Properties -->
+	<id>@MODULE_ID@</id>
+	<name>@MODULE_NAME@</name>
+	<version>@MODULE_VERSION@</version>
+	<package>@MODULE_PACKAGE@</package>
+	<author>Nicholas Ingosi Magaja</author>
+	<description>This module is meant to help manage Inventory details</description>
+	<activator>org.openmrs.module.inventory.InventoryActivator</activator>
+	<updateURL>https://dev.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL>
+
+	<!-- This module also works with the 1.6.x branch starting from 1.6.3.17711, but we can't release a
+		 version like that to the repository, because it would auto-upgrade 1.7.0 and 1.7.1, and that
+		 would break things. The following line can be commented out to build that special version -->
+	<!-- <require_version>1.6.3.17711</require_version> -->
+	<require_version>1.8.0</require_version>
+	
+    <extension>
+        <point>org.openmrs.admin.list</point>
+        <class>org.openmrs.module.inventory.ext.InventoryAdminExt</class>
+    </extension>
+
+    
+    <!-- Privileges -->
+
+    
+    <!-- Global Properties -->
+	<globalProperty>
+		<property>household.enctype</property>
+		<defaultValue>0</defaultValue>
+		<description>
+			This value represent the CHW initial encounter
+		</description>
+	</globalProperty>
+	<globalProperty>
+
+	</globalProperty>
+	<!-- Global Properties -->
+	
+	<!-- Servlets -->
+	<!-- Servlets /-->
+	
+	<dwr>
+		<allow>
+			<create creator="new" javascript="DWRInventoryService">
+				<param name="class" value="@MODULE_PACKAGE@.web.dwr.DWRInventoryService"/>
+
+			</create>
+		</allow>
+
+		<signatures>
+			<![CDATA[
+			import @MODULE_PACKAGE@.@MODULE_ID@.web.dwr.DWRInventoryService;
+
+			]]>
+		</signatures>
+	</dwr>
+	
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<mappingFiles>
+		${omodHbmConfig}
+	</mappingFiles>
+	<!-- /logic Module Properties -->
+	
+</module>

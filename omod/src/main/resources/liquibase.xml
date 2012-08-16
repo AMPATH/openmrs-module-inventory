@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<!-- See http://wiki.openmrs.org/display/docs/Module+liquibase+File for 
+		documentation on this file. See http://www.liquibase.org/manual/home#available_database_refactorings 
+		for a list of supported elements and attributes
+	-->
+    <changeSet id="inv-2012-08-10-14:31" author="ningosi">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="inv_supplier" />
+            </not>
+        </preConditions>
+        <comment>
+            Create tables for Inventory System System `inv_supplier`
+        </comment>
+        <createTable tableName="inv_supplier">
+
+            <column name="supplier_id" type="int(10)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"  />
+            </column>
+            <column name="name" type="varchar(255)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="description"  type="varchar(255)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="address"  type="varchar(255)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="city"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="state"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="zipcode"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="country"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="phone"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+            <column name="fax"  type="varchar(50)" >
+                <constraints nullable="true" />
+            </column>
+
+
+        </createTable>
+
+    </changeSet>
+
+
+	
+</databaseChangeLog>		

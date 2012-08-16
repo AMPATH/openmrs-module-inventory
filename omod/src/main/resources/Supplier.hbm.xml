@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <class name="org.openmrs.module.inventory.model.Supplier" table="inv_supplier">
+
+        <cache usage="read-write"/>
+
+        <id name="id" type="java.lang.Integer" unsaved-value="0" column="supplier_id">
+            <generator class="org.openmrs.api.db.hibernate.NativeIfNotAssignedIdentityGenerator" />
+        </id>
+
+        <discriminator column="supplier_id" insert="false"/>
+
+        <property name="name" type="string" length="255" column="name" />
+
+        <property name="description" type="string" length="255" column="description" />
+
+        <property name="address" type="string" length="255" column="address" />
+
+        <property name="city" type="string" length="50" column="city" />
+
+        <property name="state" type="string" length="50" column="state" />
+
+        <property name="zipCode" type="string" length="50" column="zipcode" />
+
+        <property name="country" type="string" length="50" column="country" />
+
+        <property name="phone" type="string" length="50" column="phone" />
+
+        <property name="fax" type="string" length="50" column="fax" />
+
+        <property name="website" type="string" length="255" column="website" />
+
+        <property name="uuid" type="string" length="38" not-null="true" unique="true"/>
+
+        <!--additional fields from baseopenmrs-->
+
+        <many-to-one name="creator" class="org.openmrs.User" />
+
+        <property name="dateCreated" type="java.util.Date" column="date_created" not-null="true" length="19" />
+
+        <many-to-one name="changedBy" class="org.openmrs.User" column="changed_by" />
+
+        <property name="dateChanged" type="java.util.Date" column="date_changed" length="19" />
+
+        <many-to-one name="voidedBy" class="org.openmrs.User" column="voided_by" />
+
+        <property name="dateVoided" type="java.util.Date"    column="date_voided" length="19" />
+
+        <property name="voidReason" type="java.lang.String"  column="void_reason" length="255" />
+
+
+    </class>
+</hibernate-mapping>
